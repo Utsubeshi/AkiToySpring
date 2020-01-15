@@ -61,7 +61,7 @@ public class ProductoController {
     public ModelAndView delete(@PathVariable("id") long id){
         productoService.deleteProducto(id);
 
-        return new ModelAndView("redirect/producto/lista");
+        return new ModelAndView("redirect:/producto/lista");
     }
 
 }

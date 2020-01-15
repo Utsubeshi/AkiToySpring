@@ -5,7 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 @Entity
 @Table(name="producto")
 public class Producto {
@@ -14,19 +13,19 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name="nombre")
+    @Column(name = "nombre")
     private String nombre;
 
-    @Column(name="precioVenta")
-    private Double precioVenta;
+    @Column(name = "precio_venta")
+    private int precio_venta;
 
-    @Column(name="marca")
+    @Column(name = "marca")
     private String marca;
 
-    @Column(name="linea")
+    @Column(name = "linea")
     private String linea;
 
-    @Column(name="categoria")
+    @Column(name = "categoria")
     private String categoria;
 
     public long getId() {
@@ -45,12 +44,12 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public Double getPrecioVenta() {
-        return precioVenta;
+    public int getPrecio_venta() {
+        return precio_venta;
     }
 
-    public void setPrecioVenta(Double precioVenta) {
-        this.precioVenta = precioVenta;
+    public void setPrecio_venta(int precio_venta) {
+        this.precio_venta = precio_venta;
     }
 
     public String getMarca() {
