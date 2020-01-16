@@ -13,13 +13,21 @@
     <script src="../../webjars/jquery/3.0.0/js/jquery.min.js"></script>
 </head>
 <body>
+<div style="background-color:#337ab7;height:50px;"></div>
 <div class="container">
     <h2>Productos registrados</h2>
+
+    <spring:url value="/reporte/html" var="reporteHTML" />
+    <a class="btn btn-primary" href="${reporteHTML }" role="button" >Reporte HTML</a>
+
+    <spring:url value="/reporte/pdf" var="reportePDF" />
+    <a class="btn btn-primary" href="${reportePDF }" role="button" >Reporte PDF</a>
+
     <table class="table table-striped">
         <thead>
         <th scope="row">#ID</th>
         <th scope="row">Nombre</th>
-        <th scope="row">Precio</th
+        <th scope="row">Precio</th>
         <th scope="row">Marca</th>
         <th scope="row">Linea</th>
         <th scope="row">Categoria</th>

@@ -13,6 +13,7 @@
     <script src="../../webjars/jquery/3.0.0/js/jquery.min.js"></script>
 </head>
 <body>
+<div style="background-color:#337ab7;height:50px;"></div>
 <div class="container">
     <spring:url value="/producto/guardarProducto" var="saveURL" />
     <h2>Producto</h2>
