@@ -17,6 +17,8 @@
 <div class="container">
     <h2>Productos registrados</h2>
 
+
+
     <spring:url value="/reporte/html" var="reporteHTML" />
     <a class="btn btn-secondary" href="${reporteHTML }" role="button" >Reporte HTML</a>
 
