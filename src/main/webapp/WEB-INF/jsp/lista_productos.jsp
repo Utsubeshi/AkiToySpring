@@ -18,10 +18,10 @@
     <h2>Productos registrados</h2>
 
     <spring:url value="/reporte/html" var="reporteHTML" />
-    <a class="btn btn-primary" href="${reporteHTML }" role="button" >Reporte HTML</a>
+    <a class="btn btn-secondary" href="${reporteHTML }" role="button" >Reporte HTML</a>
 
     <spring:url value="/reporte/pdf" var="reportePDF" />
-    <a class="btn btn-primary" href="${reportePDF }" role="button" >Reporte PDF</a>
+    <a class="btn btn-danger" href="${reportePDF }" role="button" >Reporte PDF</a>
 
     <table class="table table-striped">
         <thead>
@@ -49,7 +49,7 @@
                 </td>
                 <td>
                     <spring:url value="/producto/borrarProducto/${producto.id}" var="deleteURL" />
-                    <a class="btn btn-primary" href="${deleteURL }" role="button" >Delete</a>
+                    <a class="btn btn-danger" href="${deleteURL }" role="button" >Delete</a>
                 </td>
             </tr>
         </c:forEach>

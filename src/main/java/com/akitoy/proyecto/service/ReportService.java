@@ -5,6 +5,8 @@ import com.akitoy.proyecto.repository.ProductoRepository;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.io.support.ResourcePatternUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
@@ -21,13 +23,18 @@ public class ReportService {
     @Autowired
     private ProductoRepository productoRepository;
 
+    @Autowired
+    ResourceLoader resourceLoader;
+
     public String exportarReporte(String reportFormat) throws FileNotFoundException, JRException {
         List<Producto> productoList = (List<Producto>) productoRepository.findAll();  //verificar
 
-        //File plantilla = ResourceUtils.getFile("classpath:ListaProducto.jrxml)");
+        //File plantilla = new File(String.valueOf(ResourceUtils.getFile("classpath:ListaProducto.jrxml)")));
 
         //JasperReport reporte = JasperCompileManager.compileReport(plantilla.getAbsolutePath());
-        JasperReport reporte = JasperCompileManager.compileReport("C:\\repoJavaWeb\\ProyectoSpring\\src\\main\\resources\\ListaProducto.jrxml");
+        //JasperReport reporte = JasperCompileManager.compileReport("C:\\repoJavaWeb\\ProyectoSpringBoot\\src\\main\\resources\\ListaProducto.jrxml");
+
+        JasperReport reporte = JasperCompileManager.compileReport("C:\\repoJavaWeb\\ProyectoSpringBoot\\src\\main\\resources\\ListaProducto.jrxml");
 
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(productoList);
         Map<String, Object> parametros = new HashMap<>();
