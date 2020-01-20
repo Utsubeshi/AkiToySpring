@@ -2,27 +2,28 @@
          pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <title>AkiToy</title>
+    <title>Cart</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="aStar Fashion Template Project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-4.1.3/bootstrap.css">
-    <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
-    <link rel="stylesheet" type="text/css" href="css/main_styles.css">
-    <link rel="stylesheet" type="text/css" href="css/responsive.css">
-  </head>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-4.1.3/bootstrap.css">
+    <link href="../plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/animate.css">
+    <link rel="stylesheet" type="text/css" href="../css/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="../css/cart_responsive.css">
+</head>
 <body>
 
 <div class="super_container">
+
     <!-- Header -->
+
     <header class="header">
         <div class="header_content d-flex flex-row align-items-center justify-content-start">
             <!-- Hamburger -->
@@ -54,7 +55,7 @@
                         <img src="../images/cart.png" alt="">
                         <div class="cart_num">
                             <c:if test="${empty cantidad}">
-                            0
+                                0
                             </c:if>
                             <c:if test="${not empty cantidad}">
                                 ${cantidad}
@@ -106,7 +107,6 @@
     <!-- Sidebar -->
 
     <div class="sidebar">
-
         <!-- Info -->
         <div class="info">
             <div class="info_content d-flex flex-row align-items-center justify-content-start">
@@ -166,88 +166,106 @@
 
     <!-- Home -->
 
-    <!-- Boxes -->
-
-    <div class="boxes">
-        <div class="section_container">
-            <div class="container">
-                <div class="row">
-
-                    <!-- Box -->
-                    <div class="col-lg-4 box_col">
-                        <div class="box">
-                            <div class="box_image"><img src="images/box_1.jpg" alt=""></div>
-                            <div class="box_title trans_200"><a href="categories.html">figma</a></div>
-                        </div>
-                    </div>
-
-                    <!-- Box -->
-                    <div class="col-lg-4 box_col">
-                        <div class="box">
-                            <div class="box_image"><img src="images/box_2.jpg" alt=""></div>
-                            <div class="box_title trans_200"><a href="categories.html">nendoroid</a></div>
-                        </div>
-                    </div>
-
-                    <!-- Box -->
-                    <div class="col-lg-4 box_col">
-                        <div class="box">
-                            <div class="box_image"><img src="images/box_3.jpg" alt=""></div>
-                            <div class="box_title trans_200"><a href="categories.html">estatuas</a></div>
-                        </div>
-                    </div>
-
+    <div class="home2">
+        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="../images/product_background.jpg" data-speed="0.8"></div>
+        <div class="home_container">
+            <div class="home_content">
+                <div class="home_title">Cart</div>
+                <div class="breadcrumbs">
+                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                        <li><a href="index.html">Home</a></li>
+                        <li>Your Cart</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Categories -->
+    <!-- Cart -->
 
-    <div class="categories">
-        <div class="section_container">
-            <div class="container">
-                <div class="row">
-                    <div class="col text-center">
-                        <div class="categories_list_container">
-                            <ul class="categories_list d-flex flex-row align-items-center justify-content-start">
-                                <li><a href="categories.html">nuevos productos</a></li>
-                                <li><a href="categories.html">reservas</a></li>
-                                <li><a href="categories.html">usados</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Products -->
-
-    <div class="products">
+    <div class="cart_section">
         <div class="section_container">
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <div class="products_container grid">
+                        <div class="cart_container">
 
-                            <c:forEach items="${productoList}" var="producto" >
-                            <!-- Product -->
-                            <div class="product grid-item hot">
-                                <div class="product_inner">
-                                    <div class="product_image">
-                                        <img src="images/product_${producto.id}.jpg" alt="">
+                            <!-- Cart Bar -->
+                            <div class="cart_bar">
+                                <ul class="cart_bar_list item_list d-flex flex-row align-items-center justify-content-start">
+                                    <li>Producto</li>
+                                    <li>Marca</li>
+                                    <li>Linea</li>
+                                    <li>Categoria</li>
+                                    <li>Precio</li>
+                                    <li>Eliminar</li>
+                                </ul>
+                            </div>
 
-                                    </div>
-                                    <div class="product_content text-center">
-                                        <div class="product_title"><a href="product.html">${producto.nombre}</a></div>
-                                        <div class="product_price">S/. ${producto.precio_venta}</div>
-                                        <div class="product_button ml-auto mr-auto trans_200"><a href="/carrito/agregar/${producto.id}">añadir</a></div>
-                                    </div>
+                            <!-- Cart Items -->
+                            <div class="cart_items">
+                                <ul class="cart_items_list">
+
+                                    <c:forEach items="${carrito}" var="producto">
+
+                                    <li class="cart_item item_list d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
+                                        <div class="product d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
+                                            <div><div class="product_image2"><img src="../images/product_${producto.id}.jpg" alt=""></div></div>
+                                            <div class="product_color text-lg-center product_text"><a href="product.html">${producto.nombre}</a></div>
+                                        </div>
+                                        <div class="product_color text-lg-center product_text"><span>Marca: </span>${producto.marca}</div>
+                                        <div class="product_size text-lg-center product_text"><span>Linea: </span>${producto.linea}</div>
+                                        <div class="product_price text-lg-center product_text"><span>Categoria: </span>${producto.categoria}</div>
+                                        <div class="product_total text-lg-center product_text"><span>Precio: </span>S/. ${producto.precio_venta}</div>
+                                        <div class="product_total text-lg-center product_text">
+                                        <spring:url value="/carrito/eliminar/${producto.id }" var="eliminar" />
+                                        <a class="btn btn-primary" href="${eliminar }" role="button" >Eliminar</a>
+                                        </div>
+                                    </li>
+                                    </c:forEach>
+
+                                </ul>
+                            </div>
+
+                            <!-- Cart Buttons -->
+                            <div class="cart_buttons d-flex flex-row align-items-start justify-content-start">
+                                <div class="cart_buttons_inner ml-auto d-flex flex-row align-items-start justify-content-start flex-wrap">
+                                    <div class="button button_continue trans_200"><a href="categories.html">continue shopping</a></div>
+                                    <div class="button button_clear trans_200"><a href="categories.html">clear cart</a></div>
+                                    <div class="button button_update trans_200"><a href="categories.html">update cart</a></div>
                                 </div>
                             </div>
-                            </c:forEach>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <div class="section_container cart_extra_container">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Cart Total -->
+                    <div class="col-xxl-6">
+                        <div class="cart_extra cart_extra_2">
+                            <div class="cart_extra_content cart_extra_total">
+                                <div class="cart_extra_title">Cart Total</div>
+                                <ul class="cart_extra_total_list">
+                                    <li class="d-flex flex-row align-items-center justify-content-start">
+                                        <div class="cart_extra_total_title">Subtotal</div>
+                                        <div class="cart_extra_total_value ml-auto">$29.90</div>
+                                    </li>
+                                    <li class="d-flex flex-row align-items-center justify-content-start">
+                                        <div class="cart_extra_total_title">Shipping</div>
+                                        <div class="cart_extra_total_value ml-auto">Free</div>
+                                    </li>
+                                    <li class="d-flex flex-row align-items-center justify-content-start">
+                                        <div class="cart_extra_total_title">Total</div>
+                                        <div class="cart_extra_total_value ml-auto">$29.90</div>
+                                    </li>
+                                </ul>
+                                <div class="checkout_button trans_200"><a href="checkout.html">proceed to checkout</a></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -257,6 +275,27 @@
 
     <!-- Newsletter -->
 
+    <div class="newsletter">
+        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/newsletter.jpg" data-speed="0.8"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="newsletter_content text-center">
+                        <div class="newsletter_title_container">
+                            <div class="newsletter_title">subscribe to our newsletter</div>
+                            <div class="newsletter_subtitle">we won't spam, we promise!</div>
+                        </div>
+                        <div class="newsletter_form_container">
+                            <form action="#" id="newsletter_form" class="newsletter_form">
+                                <input type="email" class="newsletter_input" placeholder="your e-mail here" required="required">
+                                <button class="newsletter_button">submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
 
@@ -271,18 +310,18 @@
                             <div class="footer_about">
                                 <!-- Logo -->
                                 <div class="footer_logo">
-                                    <img src="images/LOGO.png" alt="" srcset="">
+                                    <a href="#"><div>a<span>star</span></div></a>
                                 </div>
                                 <div class="footer_about_text">
                                     <p>Donec vitae purus nunc. Morbi faucibus erat sit amet congue mattis. Nullam fringilla faucibus urna, id dapibus erat iaculis ut. Integer ac sem.</p>
                                 </div>
                                 <div class="cards">
                                     <ul class="d-flex flex-row align-items-center justify-content-start">
-                                        <li><a href="#"><img src="images/card_1.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="images/card_2.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="images/card_3.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="images/card_4.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="images/card_5.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="../images/card_1.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="../images/card_2.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="../images/card_3.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="../images/card_4.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="../images/card_5.jpg" alt=""></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -291,31 +330,26 @@
                         <!-- Questions -->
                         <div class="col-xxl-3 col-md-6 footer_col">
                             <div class="footer_questions">
-                                <div class="footer_title">FAQ</div>
+                                <div class="footer_title">questions</div>
                                 <div class="footer_list">
                                     <ul>
-                                        <li><a href="#">Nosotros</a></li>
-                                        <li><a href="#">Seguimiento</a></li>
-                                        <li><a href="#">Envios</a></li>
+                                        <li><a href="#">About us</a></li>
+                                        <li><a href="#">Track Orders</a></li>
+                                        <li><a href="#">Returns</a></li>
+                                        <li><a href="#">Jobs</a></li>
+                                        <li><a href="#">Shipping</a></li>
                                         <li><a href="#">Blog</a></li>
-                                        <li><a href="#">Soporte</a></li>
-                                        <li><a href="#">Terminos de uso</a></li>
-
+                                        <li><a href="#">Partners</a></li>
+                                        <li><a href="#">Bloggers</a></li>
+                                        <li><a href="#">Support</a></li>
+                                        <li><a href="#">Terms of Use</a></li>
+                                        <li><a href="#">Press</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Blog -->
-                        <div class="col-xxl-3 col-md-6 footer_col">
-
-                        </div>
-
-                        <!-- Contact -->
-                        <div class="col-xxl-3 col-md-6 footer_col">
-
-                        </div>
-                    </div>
+                      </div>
                 </div>
             </div>
         </div>
@@ -403,19 +437,17 @@
 
 </div>
 
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="css/bootstrap-4.1.3/popper.js"></script>
-<script src="css/bootstrap-4.1.3/bootstrap.min.js"></script>
-<script src="plugins/greensock/TweenMax.min.js"></script>
-<script src="plugins/greensock/TimelineMax.min.js"></script>
-<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
-<script src="plugins/greensock/animation.gsap.min.js"></script>
-<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
-<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="plugins/easing/easing.js"></script>
-<script src="plugins/parallax-js-master/parallax.min.js"></script>
-<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
-<script src="plugins/Isotope/fitcolumns.js"></script>
-<script src="js/custom.js"></script>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../css/bootstrap-4.1.3/popper.js"></script>
+<script src="../css/bootstrap-4.1.3/bootstrap.min.js"></script>
+<script src="../plugins/greensock/TweenMax.min.js"></script>
+<script src="../plugins/greensock/TimelineMax.min.js"></script>
+<script src="../plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="../plugins/greensock/animation.gsap.min.js"></script>
+<script src="../plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="../plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="../plugins/easing/easing.js"></script>
+<script src="../plugins/parallax-js-master/parallax.min.js"></script>
+<script src="../js/cart.js"></script>
 </body>
 </html>

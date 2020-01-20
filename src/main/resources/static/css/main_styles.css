@@ -1329,6 +1329,11 @@ section
 {
 	width: 100%;
 }
+
+.product_image2
+{
+	width: 30%;
+}
 .product_image::after
 {
 	display: block;

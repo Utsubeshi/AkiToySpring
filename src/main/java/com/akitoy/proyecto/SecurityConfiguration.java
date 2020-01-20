@@ -43,6 +43,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 // URLs matching for access rights
                 .antMatchers("/").permitAll()
+                .antMatchers("/carrito/**").permitAll()
                 .antMatchers("/images/**").permitAll()
                 .antMatchers("/plugins/**").permitAll()
                 .antMatchers("/styles/**").permitAll()
