@@ -35,7 +35,7 @@
             <!-- Navigation TO DO -->
             <nav class="header_nav">
                 <ul class="d-flex flex-row align-items-center justify-content-start">
-                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="/">Inicio</a></li>
                     <li><a href="#">Categorias</a></li>
                     <li><a href="#">Reservas</a></li>
                     <li><a href="#">Usados</a></li>
@@ -84,7 +84,7 @@
         </div>
         <nav class="menu_nav">
             <ul class="menu_mm">
-                <li class="menu_mm"><a href="#">inicio</a></li>
+                <li class="menu_mm"><a href="/">inicio</a></li>
                 <li class="menu_mm"><a href="#">categorias</a></li>
                 <li class="menu_mm"><a href="#">reservas</a></li>
                 <li class="menu_mm"><a href="#">usados</a></li>
@@ -122,7 +122,7 @@
         <!-- Sidebar Navigation MENU FULL-->
         <nav class="sidebar_nav">
             <ul>
-                <li><a href="index.html">inicio<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                <li><a href="/">inicio<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
                 <li><a href="#">categorias<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
                 <li><a href="#">reservas<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
                 <li><a href="#">usados<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
@@ -205,34 +205,29 @@
                             <!-- Cart Items -->
                             <div class="cart_items">
                                 <ul class="cart_items_list">
-
                                     <c:forEach items="${carrito}" var="producto">
-
                                     <li class="cart_item item_list d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
                                         <div class="product d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
                                             <div><div class="product_image2"><img src="../images/product_${producto.id}.jpg" alt=""></div></div>
-                                            <div class="product_color text-lg-center product_text"><a href="product.html">${producto.nombre}</a></div>
+                                            <div class="product_name2"><a href="product.html">${producto.nombre}</a></div>
                                         </div>
-                                        <div class="product_color text-lg-center product_text"><span>Marca: </span>${producto.marca}</div>
-                                        <div class="product_size text-lg-center product_text"><span>Linea: </span>${producto.linea}</div>
-                                        <div class="product_price text-lg-center product_text"><span>Categoria: </span>${producto.categoria}</div>
-                                        <div class="product_total text-lg-center product_text"><span>Precio: </span>S/. ${producto.precio_venta}</div>
+                                        <div class="product_title text-lg-center product_text"><span>Marca: </span>${producto.marca}</div>
+                                        <div class="product_title text-lg-center product_text"><span>Linea: </span>${producto.linea}</div>
+                                        <div class="product_title text-lg-center product_text"><span>Categoria: </span>${producto.categoria}</div>
+                                        <div class="product_title text-lg-center product_text"><span>Precio: </span>S/. ${producto.precio_venta}</div>
                                         <div class="product_total text-lg-center product_text">
                                         <spring:url value="/carrito/eliminar/${producto.id }" var="eliminar" />
-                                        <a class="btn btn-primary" href="${eliminar }" role="button" >Eliminar</a>
+                                        <a class="btn btn-danger" href="${eliminar }" role="button" >Eliminar</a>
                                         </div>
                                     </li>
                                     </c:forEach>
-
                                 </ul>
                             </div>
 
                             <!-- Cart Buttons -->
                             <div class="cart_buttons d-flex flex-row align-items-start justify-content-start">
                                 <div class="cart_buttons_inner ml-auto d-flex flex-row align-items-start justify-content-start flex-wrap">
-                                    <div class="button button_continue trans_200"><a href="categories.html">continue shopping</a></div>
-                                    <div class="button button_clear trans_200"><a href="categories.html">clear cart</a></div>
-                                    <div class="button button_update trans_200"><a href="categories.html">update cart</a></div>
+                                    <div class="button button_continue trans_200"><a href="/">continuar comprando</a></div>
                                 </div>
                             </div>
                         </div>
@@ -249,22 +244,38 @@
                     <div class="col-xxl-6">
                         <div class="cart_extra cart_extra_2">
                             <div class="cart_extra_content cart_extra_total">
-                                <div class="cart_extra_title">Cart Total</div>
+                                <div class="cart_extra_title">Total</div>
                                 <ul class="cart_extra_total_list">
                                     <li class="d-flex flex-row align-items-center justify-content-start">
                                         <div class="cart_extra_total_title">Subtotal</div>
-                                        <div class="cart_extra_total_value ml-auto">$29.90</div>
+                                        <div class="cart_extra_total_value ml-auto" id="pagar"> S/.
+                                            <span>
+                                            <c:if test="${empty precioTotal}">
+                                                0.0
+                                            </c:if>
+                                            <c:if test="${not empty precioTotal}">
+                                                ${precioTotal}
+                                            </c:if>
+                                            </span>
+                                        </div>
                                     </li>
                                     <li class="d-flex flex-row align-items-center justify-content-start">
-                                        <div class="cart_extra_total_title">Shipping</div>
-                                        <div class="cart_extra_total_value ml-auto">Free</div>
+                                        <div class="cart_extra_total_title">Envio</div>
+                                        <div class="cart_extra_total_value ml-auto">Gratis</div>
                                     </li>
                                     <li class="d-flex flex-row align-items-center justify-content-start">
                                         <div class="cart_extra_total_title">Total</div>
-                                        <div class="cart_extra_total_value ml-auto">$29.90</div>
+                                        <div class="cart_extra_total_value ml-auto">S/.
+                                            <c:if test="${empty precioTotal}">
+                                                0.0
+                                            </c:if>
+                                            <c:if test="${not empty precioTotal}">
+                                                ${precioTotal}
+                                            </c:if>
+                                        </div>
                                     </li>
                                 </ul>
-                                <div class="checkout_button trans_200"><a href="checkout.html">proceed to checkout</a></div>
+                                <div class="checkout_button trans_200"><a href="checkout.html" id="buyButton">Checkout</a></div>
                             </div>
                         </div>
                     </div>
@@ -308,10 +319,6 @@
                         <!-- About -->
                         <div class="col-xxl-3 col-md-6 footer_col">
                             <div class="footer_about">
-                                <!-- Logo -->
-                                <div class="footer_logo">
-                                    <a href="#"><div>a<span>star</span></div></a>
-                                </div>
                                 <div class="footer_about_text">
                                     <p>Donec vitae purus nunc. Morbi faucibus erat sit amet congue mattis. Nullam fringilla faucibus urna, id dapibus erat iaculis ut. Integer ac sem.</p>
                                 </div>
@@ -449,5 +456,46 @@
 <script src="../plugins/easing/easing.js"></script>
 <script src="../plugins/parallax-js-master/parallax.min.js"></script>
 <script src="../js/cart.js"></script>
+<!-- Incluyendo Culqi Checkout -->
+<script src="https://checkout.culqi.com/js/v3"></script>
+<script>
+    Culqi.publicKey = 'pk_test_Kd3gwqwwXEHBBj9r';
+</script>
+
+<script>
+
+    $(document).ready(function () {
+        var total = $('#pagar span').text().trim() *100;
+        console.log(total);
+        Culqi.settings({
+            title: 'AkiToy',
+            currency: 'PEN',
+            description: 'Tienda de figuras colecionables',
+            amount: total
+        });
+    });
+
+
+
+    $('#buyButton').on('click', function (e) {
+        // Abre el formulario con la configuración en Culqi.settings
+        Culqi.open();
+        e.preventDefault();
+    });
+
+    function culqi() {
+        if (Culqi.token) { // ¡Objeto Token creado exitosamente!
+            var token = Culqi.token.id;
+            alert('Se ha creado un token:' + token);
+            //En esta linea de codigo debemos enviar el "Culqi.token.id"
+            //hacia tu servidor con Ajax
+        } else { // ¡Hubo algún problema!
+            // Mostramos JSON de objeto error en consola
+            console.log(Culqi.error);
+            alert(Culqi.error.user_message);
+        }
+    };
+
+</script>
 </body>
 </html>

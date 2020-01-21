@@ -1326,13 +1326,18 @@ section
 	margin-bottom: 45px;
 }
 .product_image
-{
-	width: 100%;
-}
+ {
+	 width: 100%;
+ }
 
 .product_image2
 {
-	width: 30%;
+	height: 60%;
+	width: 119px;
+}
+.product_image2 img
+{
+	max-width: 70%;
 }
 .product_image::after
 {
