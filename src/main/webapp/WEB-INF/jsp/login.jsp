@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
@@ -17,13 +18,16 @@
         <!-- <img th:src="@{/images/login.jpg}" class="img-responsive center-block" width="300" height="300" alt="Logo" /> -->
         <form th:action="@{/login}" method="POST" class="form-signin">
             <h3 class="form-signin-heading" th:text="Login">Ingrese sus datos:</h3>
-            <br /> <input type="text" id="email" name="email" placeholder="Email" class="form-control" /> <br /> <input type="password" placeholder="Password" id="password" name="password" class="form-control" /> <br />
+            <br /> <input type="text" id="email" name="email" placeholder="Email" class="form-control" />
+            <br /> <input type="password" placeholder="Password" id="password" name="password" class="form-control" /> <br />
 
-            <div align="center" th:if="${param.error}">
-                <p style="font-size: 10px; color: #FF1C19;">Email o Password no validos</p>
+            <div align="center">
+                <c:if test="${param.error}">
+                    <p style="font-size: 10px; color: #FF1C19;">Email o Password no validos</p>
+                </c:if>
+
             </div>
             <button class="btn btn-lg btn-primary" name="Submit" value="Login" type="Submit" th:text="Login" style="margin-right:10px;">Login</button>
-            <a href="/recover-password">Forgot password?</a>
         </form>
     </div>
 </div>

@@ -1,5 +1,6 @@
 package com.akitoy.proyecto.controller;
 
+import com.akitoy.proyecto.model.Usuario;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,19 +15,13 @@ public class AuthenticationController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    @RequestMapping(value = "/registro", method = RequestMethod.GET)
     public ModelAndView register() {
-        ModelAndView modelAndView = new ModelAndView();
-        // User user = new User();
-        // modelAndView.addObject("user", user);
-        modelAndView.setViewName("register");
-        return modelAndView;
+        ModelAndView model = new ModelAndView();
+        Usuario usuario = new Usuario();
+        model.addObject("usuario", usuario);
+        model.setViewName("registro");
+        return model;
     }
 
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public ModelAndView home() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("home");
-        return modelAndView;
-    }
 }

@@ -275,7 +275,7 @@
                                         </div>
                                     </li>
                                 </ul>
-                                <div class="checkout_button trans_200"><a href="checkout.html" id="buyButton">Checkout</a></div>
+                                <div class="checkout_button trans_200"><a href="" id="buyButton">Checkout</a></div>
                             </div>
                         </div>
                     </div>

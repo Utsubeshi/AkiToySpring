@@ -15,37 +15,34 @@
 <body>
 <div style="background-color:#337ab7;height:50px;"></div>
 <div class="container">
-    <spring:url value="/producto/guardarProducto" var="saveURL" />
-    <h2>Producto</h2>
-    <form:form modelAttribute="productoForm" method="post" action="${saveURL }" cssClass="form" >
+    <spring:url value="/usuario/registrarUsuario" var="saveURL" />
+    <h2>Nuevo Usuario</h2>
+    <form:form modelAttribute="usuario" method="post" action="${saveURL }" cssClass="form" >
         <form:hidden path="id"/>
         <div class="form-group">
-            <label>Nombre</label>
-            <form:input path="nombre" cssClass="form-control" id="nombre" />
+            <label>Nombres</label>
+            <form:input path="nombres" cssClass="form-control" id="nombres" />
         </div>
         <div class="form-group">
-            <label>Precio</label>
-            <form:input path="precio_venta" cssClass="form-control" id="precio_venta" type="number"/>
+            <label>Apellidos</label>
+            <form:input path="apellidos" cssClass="form-control" id="apellidos" />
         </div>
         <div class="form-group">
-            <label>Marca</label>
-            <form:input path="marca" cssClass="form-control" id="marca" />
+            <label>Email</label>
+            <form:input path="email" cssClass="form-control" id="email" />
         </div>
         <div class="form-group">
-            <label>Linea</label>
-            <form:input path="linea" cssClass="form-control" id="linea" />
+            <label>Password</label>
+            <form:input path="password" type="password" cssClass="form-control" id="password" />
         </div>
-        <div class="form-group">
-            <label>Categoria</label>
-            <form:input path="categoria" cssClass="form-control" id="categoria" />
-        </div>
+        <button type="submit" class="btn btn-primary">Registrar</button>
 
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <span>${mensaje}</span>
     </form:form>
-    <div>
-        <br>
-        <a class="btn btn-danger" href="producto/lista" role="button">Volver</a>
-    </div>
+        <div>
+            <br>
+            <a class="btn btn-danger" href="producto/lista" role="button">Volver</a>
+        </div>
 </div>
 </body>
 </html>

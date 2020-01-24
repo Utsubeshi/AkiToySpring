@@ -13,10 +13,15 @@
     <script src="../../webjars/jquery/3.0.0/js/jquery.min.js"></script>
 </head>
 <body>
-<div style="background-color:#337ab7;height:50px;"></div>
+<div style="background-color:#337ab7;height:50px;">
+    <div class="navbar">
+    <spring:url value="/registro" var="registro" />
+    <a class="text-light" href="${registro }" role="button" >Registrar usuario</a>
+</div>
+</div>
+<br>
 <div class="container">
     <h2>Productos registrados</h2>
-
 
 
     <spring:url value="/reporte/html" var="reporteHTML" />
@@ -24,7 +29,7 @@
 
     <spring:url value="/reporte/pdf" var="reportePDF" />
     <a class="btn btn-danger" href="${reportePDF }" role="button" >Reporte PDF</a>
-
+    <br>
     <table class="table table-striped">
         <thead>
         <th scope="row">#ID</th>
@@ -33,8 +38,8 @@
         <th scope="row">Marca</th>
         <th scope="row">Linea</th>
         <th scope="row">Categoria</th>
-        <th scope="row">Update</th>
-        <th scope="row">Delete</th>
+        <th scope="row">Actualizar</th>
+        <th scope="row">Elimiar</th>
         </thead>
         <tbody>
         <c:forEach items="${productoList}" var="producto" >
@@ -58,7 +63,7 @@
         </tbody>
     </table>
     <spring:url value="/producto/agregarProducto/" var="addURL" />
-    <a class="btn btn-primary" href="${addURL }" role="button" >Add New Article</a>
+    <a class="btn btn-primary" href="${addURL }" role="button" >Registrar producto</a>
 </div>
 </body>
 </html>
